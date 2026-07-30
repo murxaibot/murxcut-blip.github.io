@@ -17,7 +17,7 @@
       color: #fff;
     }
 
-    /* ══════════ КАСТОМНЫЙ СКРОЛЛБАР ══════════ */
+    /* ══════════ СКРОЛЛБАР ══════════ */
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #f5c6d0; }
     ::-webkit-scrollbar-thumb { background: #c48888; border: 2px solid #8b5e5e; }
@@ -31,7 +31,6 @@
       filter: blur(6px) brightness(0.95);
     }
 
-    /* Пиксельная сетка поверх фона */
     .bg::after {
       content: '';
       position: fixed; inset: 0;
@@ -50,13 +49,13 @@
       padding: 36px 20px 60px;
       display: flex;
       gap: 36px;
-      align-items: flex-start;
+      align-items: center;
     }
 
     /* ══════════ ЛЕВАЯ КОЛОНКА ══════════ */
     .left { flex: 1; display: flex; flex-direction: column; gap: 14px; }
 
-    /* ─── Кнопки навигации ─── */
+    /* ─── Кнопки ─── */
     .nav-btn {
       display: flex;
       align-items: center;
@@ -68,7 +67,6 @@
       text-decoration: none;
       cursor: pointer;
       transition: .2s;
-      position: relative;
     }
     .nav-btn:nth-child(even) { margin-left: 28px; }
 
@@ -129,7 +127,6 @@
       50%     { transform: translateY(-8px); }
     }
 
-    /* Полоска травы */
     .grass-row { display: flex; justify-content: center; margin-top: 8px; }
     .g-block {
       width: 22px; height: 22px;
@@ -146,67 +143,26 @@
       border-bottom: none;
     }
 
-    /* ══════════ ПРАВАЯ КОЛОНКА ══════════ */
-    .right { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+    /* ══════════ ПРАВАЯ КОЛОНКА — ПЕРСОНАЖ ══════════ */
+    .right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-    /* ─── Облачко ─── */
-    .bubble {
-      background: rgba(255,240,245,.93);
-      border: 4px solid #d4a0a0;
-      outline: 3px solid #8b5e5e;
-      padding: 22px 24px;
-      max-width: 400px; width: 100%;
-      position: relative;
-    }
-    .bubble::after {
-      content: '';
-      position: absolute; bottom: -18px; left: 50%; transform: translateX(-50%);
-      border: 14px solid transparent;
-      border-top: 18px solid #d4a0a0;
-    }
-    .bubble::before {
-      content: '';
-      position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%);
-      border: 10px solid transparent;
-      border-top: 14px solid rgba(255,240,245,.93);
-      z-index: 1;
-    }
-    .bubble p {
-      font-size: 8px; color: #2a1a1a;
-      line-height: 2.2; text-shadow: none;
-    }
-    .bubble .name { color: #c0392b; font-size: 10px; }
-
-    /* ─── Персонаж на кроватке ─── */
-    .character-scene {
+    .character {
       width: 100%;
       max-width: 420px;
-      margin-top: -10px;
-      position: relative;
     }
-
-    /* Персонаж — поверх кровати */
-    .char-img {
-      width: 85%;
-      height: auto;
-      display: block;
-      position: relative;
-      z-index: 2;
-      margin: 0 auto;
-      /* ↓ двигай персонажа вверх/вниз этой цифрой ↓ */
-      margin-bottom: -60px;
-    }
-
-    /* Кровать — под персонажем */
-    .bed-img {
+    .character img {
       width: 100%;
       height: auto;
       display: block;
-      position: relative;
-      z-index: 1;
+      border-radius: 6px;
     }
 
-    /* ══════════ ДЕКОРАЦИИ: MINECRAFT-БЛОКИ ══════════ */
+    /* ══════════ ДЕКОРАЦИИ: БЛОКИ ══════════ */
     .mc {
       position: fixed;
       z-index: 0;
@@ -242,21 +198,21 @@
       border: 2px solid #f090a0;
     }
 
-    .mc.d1 { top: 6%;   left: 3%;   animation: float 3.5s ease-in-out infinite; }
-    .mc.d2 { top: 22%;  right: 4%;  animation: float 4s ease-in-out infinite .5s; }
-    .mc.d3 { bottom: 8%; left: 5%;  animation: float 3s ease-in-out infinite 1s; }
-    .mc.d4 { bottom: 18%;right: 6%; animation: float 4.5s ease-in-out infinite 1.5s; }
-    .mc.d5 { top: 50%;  left: 1%;   animation: float 3.8s ease-in-out infinite .8s; }
-    .mc.d6 { top: 72%;  right: 2%;  animation: float 3.2s ease-in-out infinite 1.2s; }
-    .mc.d7 { top: 88%;  left: 8%;   animation: float 4.2s ease-in-out infinite 2s; }
-    .mc.d8 { top: 38%;  right: 3%;  animation: float 3.6s ease-in-out infinite .3s; }
+    .mc.d1 { top: 6%;    left: 3%;   animation: float 3.5s ease-in-out infinite; }
+    .mc.d2 { top: 22%;   right: 4%;  animation: float 4s ease-in-out infinite .5s; }
+    .mc.d3 { bottom: 8%; left: 5%;   animation: float 3s ease-in-out infinite 1s; }
+    .mc.d4 { bottom: 18%;right: 6%;  animation: float 4.5s ease-in-out infinite 1.5s; }
+    .mc.d5 { top: 50%;   left: 1%;   animation: float 3.8s ease-in-out infinite .8s; }
+    .mc.d6 { top: 72%;   right: 2%;  animation: float 3.2s ease-in-out infinite 1.2s; }
+    .mc.d7 { top: 88%;   left: 8%;   animation: float 4.2s ease-in-out infinite 2s; }
+    .mc.d8 { top: 38%;   right: 3%;  animation: float 3.6s ease-in-out infinite .3s; }
 
     @keyframes float {
       0%,100% { transform: translateY(0) rotate(0deg); }
       50%     { transform: translateY(-10px) rotate(3deg); }
     }
 
-    /* ══════════ ДЕКОРАЦИИ: ЭМОДЗИ ══════════ */
+    /* ══════════ ЭМОДЗИ ══════════ */
     .emo {
       position: fixed;
       z-index: 0;
@@ -264,14 +220,14 @@
       opacity: .45;
       font-size: 18px;
     }
-    .emo.e1 { top: 10%;  right: 14%; animation: float 3s ease-in-out infinite .2s; }
-    .emo.e2 { top: 35%;  left: 6%;   animation: float 4s ease-in-out infinite .7s; font-size: 14px; }
-    .emo.e3 { top: 58%;  right: 10%; animation: float 3.4s ease-in-out infinite 1.4s; }
-    .emo.e4 { top: 82%;  left: 12%;  animation: float 3.8s ease-in-out infinite .4s; font-size: 16px; }
-    .emo.e5 { top: 14%;  left: 42%;  animation: float 4.2s ease-in-out infinite 1.8s; font-size: 14px; }
-    .emo.e6 { bottom: 4%; right: 20%;animation: float 3.6s ease-in-out infinite 1s; }
+    .emo.e1 { top: 10%;   right: 14%; animation: float 3s ease-in-out infinite .2s; }
+    .emo.e2 { top: 35%;   left: 6%;   animation: float 4s ease-in-out infinite .7s; font-size: 14px; }
+    .emo.e3 { top: 58%;   right: 10%; animation: float 3.4s ease-in-out infinite 1.4s; }
+    .emo.e4 { top: 82%;   left: 12%;  animation: float 3.8s ease-in-out infinite .4s; font-size: 16px; }
+    .emo.e5 { top: 14%;   left: 42%;  animation: float 4.2s ease-in-out infinite 1.8s; font-size: 14px; }
+    .emo.e6 { bottom: 4%; right: 20%; animation: float 3.6s ease-in-out infinite 1s; }
 
-    /* ══════════ ДЕКОРАЦИИ: ЛЕПЕСТКИ ══════════ */
+    /* ══════════ ЛЕПЕСТКИ ══════════ */
     .petal {
       position: fixed;
       width: 8px; height: 8px;
@@ -280,28 +236,28 @@
       opacity: .55;
       animation: petals linear infinite;
     }
-    .petal:nth-child(1)  { left: 8%;  animation-duration: 9s;  animation-delay: 0s;   width: 6px; height: 6px; }
-    .petal:nth-child(2)  { left: 22%; animation-duration: 11s; animation-delay: 2s;   width: 10px; height: 10px; opacity: .35; }
-    .petal:nth-child(3)  { left: 38%; animation-duration: 8s;  animation-delay: 4s; }
-    .petal:nth-child(4)  { left: 52%; animation-duration: 10s; animation-delay: 1s;   width: 6px; height: 6px; }
-    .petal:nth-child(5)  { left: 68%; animation-duration: 12s; animation-delay: 3s;   opacity: .4; }
-    .petal:nth-child(6)  { left: 82%; animation-duration: 9s;  animation-delay: 5s;   width: 10px; height: 10px; }
-    .petal:nth-child(7)  { left: 14%; animation-duration: 13s; animation-delay: 6s;   opacity: .3; }
-    .petal:nth-child(8)  { left: 58%; animation-duration: 10s; animation-delay: 2.5s; width: 7px; height: 7px; }
-    .petal:nth-child(9)  { left: 92%; animation-duration: 11s; animation-delay: 4.5s; opacity: .4; }
-    .petal:nth-child(10) { left: 45%; animation-duration: 9.5s;animation-delay: 1.5s; }
-    .petal:nth-child(11) { left: 75%; animation-duration: 8.5s;animation-delay: 3.5s; width: 5px; height: 5px; }
-    .petal:nth-child(12) { left: 30%; animation-duration: 12s; animation-delay: 0.5s; opacity: .3; width: 9px; height: 9px; }
+    .petal:nth-child(1)  { left: 8%;  animation-duration: 9s;   animation-delay: 0s;   width: 6px; height: 6px; }
+    .petal:nth-child(2)  { left: 22%; animation-duration: 11s;  animation-delay: 2s;   width: 10px; height: 10px; opacity: .35; }
+    .petal:nth-child(3)  { left: 38%; animation-duration: 8s;   animation-delay: 4s; }
+    .petal:nth-child(4)  { left: 52%; animation-duration: 10s;  animation-delay: 1s;   width: 6px; height: 6px; }
+    .petal:nth-child(5)  { left: 68%; animation-duration: 12s;  animation-delay: 3s;   opacity: .4; }
+    .petal:nth-child(6)  { left: 82%; animation-duration: 9s;   animation-delay: 5s;   width: 10px; height: 10px; }
+    .petal:nth-child(7)  { left: 14%; animation-duration: 13s;  animation-delay: 6s;   opacity: .3; }
+    .petal:nth-child(8)  { left: 58%; animation-duration: 10s;  animation-delay: 2.5s; width: 7px; height: 7px; }
+    .petal:nth-child(9)  { left: 92%; animation-duration: 11s;  animation-delay: 4.5s; opacity: .4; }
+    .petal:nth-child(10) { left: 45%; animation-duration: 9.5s; animation-delay: 1.5s; }
+    .petal:nth-child(11) { left: 75%; animation-duration: 8.5s; animation-delay: 3.5s; width: 5px; height: 5px; }
+    .petal:nth-child(12) { left: 30%; animation-duration: 12s;  animation-delay: 0.5s; opacity: .3; width: 9px; height: 9px; }
 
     @keyframes petals {
-      0%   { top: -12px;  transform: rotate(0)    translateX(0); }
+      0%   { top: -12px; transform: rotate(0)    translateX(0); }
       25%  { transform: rotate(90deg)  translateX(22px); }
       50%  { transform: rotate(180deg) translateX(-18px); }
       75%  { transform: rotate(270deg) translateX(12px); }
-      100% { top: 105vh;  transform: rotate(360deg) translateX(0); }
+      100% { top: 105vh; transform: rotate(360deg) translateX(0); }
     }
 
-    /* ══════════ ДЕКОРАЦИИ: ИСКОРКИ ══════════ */
+    /* ══════════ ИСКОРКИ ══════════ */
     .spark {
       position: fixed;
       width: 4px; height: 4px;
@@ -323,7 +279,7 @@
       50%     { opacity: .9; transform: scale(1.2); }
     }
 
-    /* ══════════ НИЖНЯЯ ПОЛОСА ТРАВЫ ══════════ */
+    /* ══════════ ПОЛОСА ТРАВЫ ══════════ */
     .ground {
       position: fixed;
       bottom: 0; left: 0;
@@ -347,7 +303,7 @@
       border: 2px solid #388E3C; border-bottom: none;
     }
 
-    /* ══════════ ВХОДНЫЕ АНИМАЦИИ ══════════ */
+    /* ══════════ АНИМАЦИИ ПОЯВЛЕНИЯ ══════════ */
     .nav-btn { opacity: 0; transform: translateX(-30px); animation: slideIn .5s ease forwards; }
     .nav-btn:nth-child(1) { animation-delay: .1s; }
     .nav-btn:nth-child(2) { animation-delay: .2s; }
@@ -355,13 +311,11 @@
     .nav-btn:nth-child(4) { animation-delay: .4s; }
     .nav-btn:nth-child(5) { animation-delay: .5s; }
 
-    .bubble          { opacity: 0; transform: translateY(-16px); animation: fadeDown .6s ease forwards .35s; }
-    .character-scene { opacity: 0; animation: fadeIn .8s ease forwards .65s; }
-    .coming-soon     { opacity: 0; animation: fadeIn .6s ease forwards .7s; }
+    .character    { opacity: 0; animation: fadeIn .8s ease forwards .3s; }
+    .coming-soon  { opacity: 0; animation: fadeIn .6s ease forwards .7s; }
 
-    @keyframes slideIn  { to { opacity: 1; transform: translateX(0); } }
-    @keyframes fadeDown  { to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeIn    { to { opacity: 1; } }
+    @keyframes slideIn { to { opacity: 1; transform: translateX(0); } }
+    @keyframes fadeIn  { to { opacity: 1; } }
 
     /* ══════════ ФУТЕР ══════════ */
     .footer {
@@ -380,10 +334,10 @@
       .nav-btn:nth-child(even) { margin-left: 18px; }
       .btn-title { font-size: 9px; }
       .btn-sub   { font-size: 6px; }
-      .bubble p  { font-size: 7px; }
       .coming-soon h2 { font-size: 15px; }
       .mc { opacity: .25; }
       .ground { opacity: .18; }
+      .character { max-width: 300px; margin: 0 auto; }
     }
     @media (max-width: 480px) {
       .nav-btn { padding: 11px 12px; gap: 10px; }
@@ -396,22 +350,18 @@
 </head>
 <body>
 
-  <!-- ═══ Фон ═══ -->
   <div class="bg"></div>
 
-  <!-- ═══ Падающие лепестки ═══ -->
   <div class="petal"></div><div class="petal"></div><div class="petal"></div>
   <div class="petal"></div><div class="petal"></div><div class="petal"></div>
   <div class="petal"></div><div class="petal"></div><div class="petal"></div>
   <div class="petal"></div><div class="petal"></div><div class="petal"></div>
 
-  <!-- ═══ Искорки ═══ -->
   <div class="spark s1"></div><div class="spark s2"></div>
   <div class="spark s3"></div><div class="spark s4"></div>
   <div class="spark s5"></div><div class="spark s6"></div>
   <div class="spark s7"></div><div class="spark s8"></div>
 
-  <!-- ═══ Майнкрафт-блоки ═══ -->
   <div class="mc grass  d1"></div>
   <div class="mc wool   d2"></div>
   <div class="mc cherry d3"></div>
@@ -421,7 +371,6 @@
   <div class="mc cherry d7"></div>
   <div class="mc grass  d8"></div>
 
-  <!-- ═══ Эмодзи-декор ═══ -->
   <div class="emo e1">💗</div>
   <div class="emo e2">🎀</div>
   <div class="emo e3">🌸</div>
@@ -429,13 +378,12 @@
   <div class="emo e5">💮</div>
   <div class="emo e6">🌷</div>
 
-  <!-- ═══ Полоса травы внизу ═══ -->
   <div class="ground" id="ground"></div>
 
-  <!-- ═══ ОСНОВНОЙ КОНТЕНТ ═══ -->
+  <!-- ═══ КОНТЕНТ ═══ -->
   <div class="container">
 
-    <!-- ── Левая колонка ── -->
+    <!-- ── Кнопки слева ── -->
     <div class="left">
 
       <a href="https://t.me/ТВОЙ_КАНАЛ" class="nav-btn" target="_blank">
@@ -490,25 +438,13 @@
       </div>
     </div>
 
-    <!-- ── Правая колонка ── -->
+    <!-- ── Персонаж справа по центру ── -->
     <div class="right">
-
-      <div class="bubble">
-        <p>
-          Привет! Меня зовут <span class="name">Murx</span><br><br>
-          Я создаю ботов для ST, Tavo и Glaze.<br><br>
-          Иногда балуюсь с промтами для генок.<br><br>
-          А ещё люблю создавать темы<br>для приложений.
-        </p>
+      <div class="character">
+        <img src="murx.png" alt="Murx">
       </div>
-
-      <!-- Персонаж на кроватке -->
-      <div class="character-scene">
-        <img src="murx.png" alt="Murx" class="char-img">
-        <img src="bed.webp" alt="Кроватка" class="bed-img">
-      </div>
-
     </div>
+
   </div>
 
   <div class="footer">made with 💗 by Murx</div>
