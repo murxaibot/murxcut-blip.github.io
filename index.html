@@ -36,8 +36,8 @@
       content: '';
       position: fixed; inset: 0;
       background:
-        repeating-linear-gradient(0deg,   transparent, transparent 46px, rgba(255,255,255,.03) 46px, rgba(255,255,255,.03) 48px),
-        repeating-linear-gradient(90deg,  transparent, transparent 46px, rgba(255,255,255,.03) 46px, rgba(255,255,255,.03) 48px);
+        repeating-linear-gradient(0deg, transparent, transparent 46px, rgba(255,255,255,.03) 46px, rgba(255,255,255,.03) 48px),
+        repeating-linear-gradient(90deg, transparent, transparent 46px, rgba(255,255,255,.03) 46px, rgba(255,255,255,.03) 48px);
       pointer-events: none;
     }
 
@@ -177,9 +177,34 @@
     }
     .bubble .name { color: #c0392b; font-size: 10px; }
 
-    /* ─── Персонаж ─── */
-    .character { width: 100%; max-width: 380px; margin-top: 18px; }
-    .character img { width: 100%; height: auto; display: block; border-radius: 6px; }
+    /* ─── Персонаж на кроватке ─── */
+    .character-scene {
+      width: 100%;
+      max-width: 420px;
+      margin-top: -10px;
+      position: relative;
+    }
+
+    /* Персонаж — поверх кровати */
+    .char-img {
+      width: 85%;
+      height: auto;
+      display: block;
+      position: relative;
+      z-index: 2;
+      margin: 0 auto;
+      /* ↓ двигай персонажа вверх/вниз этой цифрой ↓ */
+      margin-bottom: -60px;
+    }
+
+    /* Кровать — под персонажем */
+    .bed-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
 
     /* ══════════ ДЕКОРАЦИИ: MINECRAFT-БЛОКИ ══════════ */
     .mc {
@@ -323,20 +348,20 @@
     }
 
     /* ══════════ ВХОДНЫЕ АНИМАЦИИ ══════════ */
-    .nav-btn  { opacity: 0; transform: translateX(-30px); animation: slideIn .5s ease forwards; }
+    .nav-btn { opacity: 0; transform: translateX(-30px); animation: slideIn .5s ease forwards; }
     .nav-btn:nth-child(1) { animation-delay: .1s; }
     .nav-btn:nth-child(2) { animation-delay: .2s; }
     .nav-btn:nth-child(3) { animation-delay: .3s; }
     .nav-btn:nth-child(4) { animation-delay: .4s; }
     .nav-btn:nth-child(5) { animation-delay: .5s; }
 
-    .bubble       { opacity: 0; transform: translateY(-16px); animation: fadeDown .6s ease forwards .35s; }
-    .character    { opacity: 0; animation: fadeIn .8s ease forwards .65s; }
-    .coming-soon  { opacity: 0; animation: fadeIn .6s ease forwards .7s; }
+    .bubble          { opacity: 0; transform: translateY(-16px); animation: fadeDown .6s ease forwards .35s; }
+    .character-scene { opacity: 0; animation: fadeIn .8s ease forwards .65s; }
+    .coming-soon     { opacity: 0; animation: fadeIn .6s ease forwards .7s; }
 
     @keyframes slideIn  { to { opacity: 1; transform: translateX(0); } }
-    @keyframes fadeDown { to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeIn   { to { opacity: 1; } }
+    @keyframes fadeDown  { to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn    { to { opacity: 1; } }
 
     /* ══════════ ФУТЕР ══════════ */
     .footer {
@@ -413,7 +438,7 @@
     <!-- ── Левая колонка ── -->
     <div class="left">
 
-      <a href="https://t.me/murxaibot" class="nav-btn" target="_blank">
+      <a href="https://t.me/ТВОЙ_КАНАЛ" class="nav-btn" target="_blank">
         <span class="btn-icon">🌱</span>
         <div class="btn-text">
           <span class="btn-title">Мой телеграм канал</span>
@@ -477,9 +502,10 @@
         </p>
       </div>
 
-      <!-- ВОТ ПЕРСОНАЖ — всего 3 строчки -->
-      <div class="character">
-        <img src="murx.png" alt="Murx">
+      <!-- Персонаж на кроватке -->
+      <div class="character-scene">
+        <img src="murx.png" alt="Murx" class="char-img">
+        <img src="bed.webp" alt="Кроватка" class="bed-img">
       </div>
 
     </div>
