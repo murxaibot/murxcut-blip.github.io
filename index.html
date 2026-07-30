@@ -281,4 +281,261 @@
     .petal:nth-child(1)  { left: 8%;  animation-duration: 9s;  animation-delay: 0s;   width: 6px; height: 6px; }
     .petal:nth-child(2)  { left: 22%; animation-duration: 11s; animation-delay: 2s;   width: 10px; height: 10px; opacity: .35; }
     .petal:nth-child(3)  { left: 38%; animation-duration: 8s;  animation-delay: 4s; }
-    .petal:nth-child(4)  { left: 52%; animation-duration: 10s; animation-delay: 1s;   width: 6px; height: 6px;
+    .petal:nth-child(4)  { left: 52%; animation-duration: 10s; animation-delay: 1s;   width: 6px; height: 6px; }
+    .petal:nth-child(5)  { left: 68%; animation-duration: 12s; animation-delay: 3s;   opacity: .4; }
+    .petal:nth-child(6)  { left: 82%; animation-duration: 9s;  animation-delay: 5s;   width: 10px; height: 10px; }
+    .petal:nth-child(7)  { left: 14%; animation-duration: 13s; animation-delay: 6s;   opacity: .3; }
+    .petal:nth-child(8)  { left: 58%; animation-duration: 10s; animation-delay: 2.5s; width: 7px; height: 7px; }
+    .petal:nth-child(9)  { left: 92%; animation-duration: 11s; animation-delay: 4.5s; opacity: .4; }
+    .petal:nth-child(10) { left: 45%; animation-duration: 9.5s;animation-delay: 1.5s; }
+    .petal:nth-child(11) { left: 75%; animation-duration: 8.5s;animation-delay: 3.5s; width: 5px; height: 5px; }
+    .petal:nth-child(12) { left: 30%; animation-duration: 12s; animation-delay: 0.5s; opacity: .3; width: 9px; height: 9px; }
+
+    @keyframes petals {
+      0%   { top: -12px;  transform: rotate(0)    translateX(0); }
+      25%  { transform: rotate(90deg)  translateX(22px); }
+      50%  { transform: rotate(180deg) translateX(-18px); }
+      75%  { transform: rotate(270deg) translateX(12px); }
+      100% { top: 105vh;  transform: rotate(360deg) translateX(0); }
+    }
+
+    /* ══════════ ДЕКОРАЦИИ: ИСКОРКИ ══════════ */
+    .spark {
+      position: fixed;
+      width: 4px; height: 4px;
+      background: #fff;
+      z-index: 0; pointer-events: none;
+      animation: sparkAnim 2.2s ease-in-out infinite;
+    }
+    .spark.s1 { top: 7%;  left: 18%;  animation-delay: 0s; }
+    .spark.s2 { top: 24%; right: 22%; animation-delay: .6s; }
+    .spark.s3 { top: 44%; left: 50%;  animation-delay: 1.1s; }
+    .spark.s4 { top: 62%; right: 30%; animation-delay: 1.6s; }
+    .spark.s5 { top: 78%; left: 30%;  animation-delay: .3s; }
+    .spark.s6 { top: 90%; right: 12%; animation-delay: .9s; }
+    .spark.s7 { top: 15%; left: 60%;  animation-delay: 1.4s; }
+    .spark.s8 { top: 52%; right: 8%;  animation-delay: 2s; }
+
+    @keyframes sparkAnim {
+      0%,100% { opacity: 0; transform: scale(0); }
+      50%     { opacity: .9; transform: scale(1.2); }
+    }
+
+    /* ══════════ НИЖНЯЯ ПОЛОСА ТРАВЫ ══════════ */
+    .ground {
+      position: fixed;
+      bottom: 0; left: 0;
+      width: 100%; height: 36px;
+      z-index: 0; pointer-events: none;
+      display: flex;
+      overflow: hidden;
+      opacity: .3;
+    }
+    .ground-block {
+      min-width: 36px; height: 36px;
+      background: #8B5E3C;
+      border: 2px solid #6b4226;
+      position: relative; flex-shrink: 0;
+    }
+    .ground-block::before {
+      content: '';
+      position: absolute; top: -2px; left: -2px;
+      width: calc(100% + 4px); height: 10px;
+      background: #4CAF50;
+      border: 2px solid #388E3C; border-bottom: none;
+    }
+
+    /* ══════════ ВХОДНЫЕ АНИМАЦИИ ══════════ */
+    .nav-btn  { opacity: 0; transform: translateX(-30px); animation: slideIn .5s ease forwards; }
+    .nav-btn:nth-child(1) { animation-delay: .1s; }
+    .nav-btn:nth-child(2) { animation-delay: .2s; }
+    .nav-btn:nth-child(3) { animation-delay: .3s; }
+    .nav-btn:nth-child(4) { animation-delay: .4s; }
+    .nav-btn:nth-child(5) { animation-delay: .5s; }
+
+    .bubble       { opacity: 0; transform: translateY(-16px); animation: fadeDown .6s ease forwards .35s; }
+    .character    { opacity: 0; animation: fadeIn .8s ease forwards .65s; }
+    .coming-soon  { opacity: 0; animation: fadeIn .6s ease forwards .7s; }
+
+    @keyframes slideIn  { to { opacity: 1; transform: translateX(0); } }
+    @keyframes fadeDown { to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn   { to { opacity: 1; } }
+
+    /* ══════════ ФУТЕР ══════════ */
+    .footer {
+      position: relative; z-index: 1;
+      text-align: center;
+      padding: 18px;
+      font-size: 7px;
+      color: #8b5e5e;
+      opacity: .7;
+    }
+
+    /* ══════════ АДАПТИВ ══════════ */
+    @media (max-width: 800px) {
+      .container { flex-direction: column-reverse; gap: 24px; padding: 20px 14px 70px; }
+      .left, .right { width: 100%; }
+      .nav-btn:nth-child(even) { margin-left: 18px; }
+      .btn-title { font-size: 9px; }
+      .btn-sub   { font-size: 6px; }
+      .bubble p  { font-size: 7px; }
+      .coming-soon h2 { font-size: 15px; }
+      .mc { opacity: .25; }
+      .ground { opacity: .18; }
+    }
+    @media (max-width: 480px) {
+      .nav-btn { padding: 11px 12px; gap: 10px; }
+      .nav-btn:nth-child(even) { margin-left: 10px; }
+      .btn-icon  { font-size: 20px; min-width: 28px; }
+      .btn-title { font-size: 8px; }
+      .btn-sub   { font-size: 6px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ Фон ═══ -->
+  <div class="bg"></div>
+
+  <!-- ═══ Падающие лепестки сакуры ═══ -->
+  <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+  <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+  <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+  <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+
+  <!-- ═══ Искорки ═══ -->
+  <div class="spark s1"></div><div class="spark s2"></div>
+  <div class="spark s3"></div><div class="spark s4"></div>
+  <div class="spark s5"></div><div class="spark s6"></div>
+  <div class="spark s7"></div><div class="spark s8"></div>
+
+  <!-- ═══ Майнкрафт-блоки ═══ -->
+  <div class="mc grass  d1"></div>
+  <div class="mc wool   d2"></div>
+  <div class="mc cherry d3"></div>
+  <div class="mc grass  d4"></div>
+  <div class="mc log    d5"></div>
+  <div class="mc wool   d6"></div>
+  <div class="mc cherry d7"></div>
+  <div class="mc grass  d8"></div>
+
+  <!-- ═══ Эмодзи-декор ═══ -->
+  <div class="emo e1">💗</div>
+  <div class="emo e2">🎀</div>
+  <div class="emo e3">🌸</div>
+  <div class="emo e4">✨</div>
+  <div class="emo e5">💮</div>
+  <div class="emo e6">🌷</div>
+
+  <!-- ═══ Полоса травы внизу экрана ═══ -->
+  <div class="ground" id="ground"></div>
+
+  <!-- ═══ ОСНОВНОЙ КОНТЕНТ ═══ -->
+  <div class="container">
+
+    <!-- ── Левая колонка: Навигация ── -->
+    <div class="left">
+
+      <!-- Кнопка 1 -->
+      <a href="https://t.me/murxaibot" class="nav-btn" target="_blank">
+        <span class="btn-icon">🌱</span>
+        <div class="btn-text">
+          <span class="btn-title">Мой телеграм канал</span>
+          <span class="btn-sub">тут вы найдете весь контент</span>
+        </div>
+      </a>
+
+      <!-- Кнопка 2 -->
+      <a href="#" class="nav-btn">
+        <span class="btn-icon">🍰</span>
+        <div class="btn-text">
+          <span class="btn-title">Мои боты</span>
+          <span class="btn-sub">тут вы найдете всех ботов</span>
+        </div>
+      </a>
+
+      <!-- Кнопка 3 -->
+      <a href="#" class="nav-btn">
+        <span class="btn-icon">🎂</span>
+        <div class="btn-text">
+          <span class="btn-title">Мои промты</span>
+          <span class="btn-sub">серии промтов и рандом</span>
+        </div>
+      </a>
+
+      <!-- Кнопка 4 -->
+      <a href="#" class="nav-btn">
+        <span class="btn-icon">💎</span>
+        <div class="btn-text">
+          <span class="btn-title">Заказ бота</span>
+          <span class="btn-sub">информация о заказе</span>
+        </div>
+      </a>
+
+      <!-- Кнопка 5 -->
+      <a href="#" class="nav-btn">
+        <span class="btn-icon">🌸</span>
+        <div class="btn-text">
+          <span class="btn-title">Общая информация</span>
+          <span class="btn-sub">то, чем я пользуюсь</span>
+        </div>
+      </a>
+
+      <!-- Coming Soon -->
+      <div class="coming-soon">
+        <h2>Coming soon</h2>
+        <p>в будущем информация<br>будет добавляться</p>
+        <div class="pig">🐷</div>
+        <div class="grass-row">
+          <div class="g-block"></div><div class="g-block"></div>
+          <div class="g-block"></div><div class="g-block"></div>
+          <div class="g-block"></div><div class="g-block"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Правая колонка: Приветствие + Персонаж ── -->
+    <div class="right">
+
+      <!-- Облачко -->
+      <div class="bubble">
+        <p>
+          Привет! Меня зовут <span class="name">Murx</span><br><br>
+          Я создаю ботов для ST, Tavo и Glaze.<br><br>
+          Иногда балуюсь с промтами для генок.<br><br>
+          А ещё люблю создавать темы<br>для приложений.
+        </p>
+      </div>
+
+      <!-- Персонаж -->
+      <div class="character">
+        <!--
+          ▼ ЗАМЕНИ строку ниже на свою картинку ▼
+          <img src="character.png" alt="Murx">
+        -->
+        <div class="char-placeholder">
+          <span style="font-size:42px">🐱</span>
+          Здесь будет<br>изображение<br>персонажа
+          <span style="font-size:6px;color:#b88">
+            замени на &lt;img src="character.png"&gt;
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Футер -->
+  <div class="footer">made with 💗 by Murx</div>
+
+  <!-- Скрипт: заполняет нижнюю полосу травяными блоками -->
+  <script>
+    const g = document.getElementById('ground');
+    const count = Math.ceil(window.innerWidth / 36) + 2;
+    for (let i = 0; i < count; i++) {
+      const b = document.createElement('div');
+      b.className = 'ground-block';
+      g.appendChild(b);
+    }
+  </script>
+</body>
+</html>
