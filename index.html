@@ -27,14 +27,8 @@
       position: fixed;
       inset: 0;
       z-index: 0;
-      /* ▼ Замени на свой скриншот Minecraft-комнаты ▼ */
-      /* background: url('bg.png') center/cover no-repeat; */
-      /* filter: blur(6px) brightness(0.95); */
-      background:
-        radial-gradient(ellipse at 20% 40%, rgba(245,198,208,.9), transparent 60%),
-        radial-gradient(ellipse at 80% 30%, rgba(232,196,168,.8), transparent 55%),
-        radial-gradient(ellipse at 60% 85%, rgba(240,180,200,.6), transparent 50%),
-        linear-gradient(145deg, #f5c6d0, #e8c4a8, #f0b8c4, #f2d1b8);
+      background: url('background.png') center/cover no-repeat;
+      filter: blur(6px) brightness(0.95);
     }
 
     /* Пиксельная сетка поверх фона */
@@ -164,7 +158,6 @@
       max-width: 400px; width: 100%;
       position: relative;
     }
-    /* Хвостик */
     .bubble::after {
       content: '';
       position: absolute; bottom: -18px; left: 50%; transform: translateX(-50%);
@@ -188,17 +181,6 @@
     .character { width: 100%; max-width: 380px; margin-top: 18px; }
     .character img { width: 100%; height: auto; display: block; border-radius: 6px; }
 
-    /* Заглушка, если картинки пока нет */
-    .char-placeholder {
-      width: 100%; height: 380px;
-      background: rgba(255,220,230,.25);
-      border: 4px dashed #d4a0a0;
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column; gap: 12px;
-      font-size: 9px; color: #8b5e5e;
-      text-align: center; padding: 20px; line-height: 2.2;
-    }
-
     /* ══════════ ДЕКОРАЦИИ: MINECRAFT-БЛОКИ ══════════ */
     .mc {
       position: fixed;
@@ -207,7 +189,6 @@
       opacity: .45;
       image-rendering: pixelated;
     }
-    /* Блок травы */
     .mc.grass {
       width: 36px; height: 36px;
       background: #8B5E3C;
@@ -220,26 +201,22 @@
       background: #4CAF50;
       border: 2px solid #388E3C; border-bottom: none;
     }
-    /* Розовая шерсть */
     .mc.wool {
       width: 32px; height: 32px;
       background: #f8a8c0;
       border: 2px solid #d08098;
     }
-    /* Бревно */
     .mc.log {
       width: 30px; height: 30px;
       background: #6d4c2e;
       border: 2px solid #503520;
     }
-    /* Листва вишни */
     .mc.cherry {
       width: 34px; height: 34px;
       background: #ffb6c1;
       border: 2px solid #f090a0;
     }
 
-    /* Расположение */
     .mc.d1 { top: 6%;   left: 3%;   animation: float 3.5s ease-in-out infinite; }
     .mc.d2 { top: 22%;  right: 4%;  animation: float 4s ease-in-out infinite .5s; }
     .mc.d3 { bottom: 8%; left: 5%;  animation: float 3s ease-in-out infinite 1s; }
@@ -397,7 +374,7 @@
   <!-- ═══ Фон ═══ -->
   <div class="bg"></div>
 
-  <!-- ═══ Падающие лепестки сакуры ═══ -->
+  <!-- ═══ Падающие лепестки ═══ -->
   <div class="petal"></div><div class="petal"></div><div class="petal"></div>
   <div class="petal"></div><div class="petal"></div><div class="petal"></div>
   <div class="petal"></div><div class="petal"></div><div class="petal"></div>
@@ -427,16 +404,15 @@
   <div class="emo e5">💮</div>
   <div class="emo e6">🌷</div>
 
-  <!-- ═══ Полоса травы внизу экрана ═══ -->
+  <!-- ═══ Полоса травы внизу ═══ -->
   <div class="ground" id="ground"></div>
 
   <!-- ═══ ОСНОВНОЙ КОНТЕНТ ═══ -->
   <div class="container">
 
-    <!-- ── Левая колонка: Навигация ── -->
+    <!-- ── Левая колонка ── -->
     <div class="left">
 
-      <!-- Кнопка 1 -->
       <a href="https://t.me/murxaibot" class="nav-btn" target="_blank">
         <span class="btn-icon">🌱</span>
         <div class="btn-text">
@@ -445,7 +421,6 @@
         </div>
       </a>
 
-      <!-- Кнопка 2 -->
       <a href="#" class="nav-btn">
         <span class="btn-icon">🍰</span>
         <div class="btn-text">
@@ -454,7 +429,6 @@
         </div>
       </a>
 
-      <!-- Кнопка 3 -->
       <a href="#" class="nav-btn">
         <span class="btn-icon">🎂</span>
         <div class="btn-text">
@@ -463,7 +437,6 @@
         </div>
       </a>
 
-      <!-- Кнопка 4 -->
       <a href="#" class="nav-btn">
         <span class="btn-icon">💎</span>
         <div class="btn-text">
@@ -472,7 +445,6 @@
         </div>
       </a>
 
-      <!-- Кнопка 5 -->
       <a href="#" class="nav-btn">
         <span class="btn-icon">🌸</span>
         <div class="btn-text">
@@ -481,7 +453,6 @@
         </div>
       </a>
 
-      <!-- Coming Soon -->
       <div class="coming-soon">
         <h2>Coming soon</h2>
         <p>в будущем информация<br>будет добавляться</p>
@@ -494,10 +465,9 @@
       </div>
     </div>
 
-    <!-- ── Правая колонка: Приветствие + Персонаж ── -->
+    <!-- ── Правая колонка ── -->
     <div class="right">
 
-      <!-- Облачко -->
       <div class="bubble">
         <p>
           Привет! Меня зовут <span class="name">Murx</span><br><br>
@@ -507,27 +477,16 @@
         </p>
       </div>
 
-      <!-- Персонаж -->
+      <!-- ВОТ ПЕРСОНАЖ — всего 3 строчки -->
       <div class="character">
-        <!--
-          ▼ ЗАМЕНИ строку ниже на свою картинку ▼
-          <img src="character.png" alt="Murx">
-        -->
-        <div class="char-placeholder">
-          <span style="font-size:42px">🐱</span>
-          Здесь будет<br>изображение<br>персонажа
-          <span style="font-size:6px;color:#b88">
-            замени на &lt;img src="character.png"&gt;
-          </span>
-        </div>
+        <img src="murx.png" alt="Murx">
       </div>
+
     </div>
   </div>
 
-  <!-- Футер -->
   <div class="footer">made with 💗 by Murx</div>
 
-  <!-- Скрипт: заполняет нижнюю полосу травяными блоками -->
   <script>
     const g = document.getElementById('ground');
     const count = Math.ceil(window.innerWidth / 36) + 2;
