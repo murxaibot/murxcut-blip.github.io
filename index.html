@@ -6,7 +6,6 @@
   <title>Murx — Навигация</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
-    /* ══════════ СБРОС ══════════ */
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
@@ -17,18 +16,20 @@
       color: #fff;
     }
 
-    /* ══════════ СКРОЛЛБАР ══════════ */
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #f5c6d0; }
     ::-webkit-scrollbar-thumb { background: #c48888; border: 2px solid #8b5e5e; }
 
-    /* ══════════ ФОН ══════════ */
+    /* ══════════ ФОН — градиент ══════════ */
     .bg {
       position: fixed;
       inset: 0;
       z-index: 0;
-      background: url('background.png') center/cover no-repeat;
-      filter: blur(6px) brightness(0.95);
+      background:
+        radial-gradient(ellipse at 20% 40%, rgba(245,198,208,.9), transparent 60%),
+        radial-gradient(ellipse at 80% 30%, rgba(232,196,168,.8), transparent 55%),
+        radial-gradient(ellipse at 60% 85%, rgba(240,180,200,.6), transparent 50%),
+        linear-gradient(145deg, #f5c6d0, #e8c4a8, #f0b8c4, #f2d1b8);
     }
 
     .bg::after {
@@ -55,7 +56,6 @@
     /* ══════════ ЛЕВАЯ КОЛОНКА ══════════ */
     .left { flex: 1; display: flex; flex-direction: column; gap: 14px; }
 
-    /* ─── Кнопки ─── */
     .nav-btn {
       display: flex;
       align-items: center;
@@ -97,7 +97,6 @@
       line-height: 1.5;
     }
 
-    /* ─── Coming Soon ─── */
     .coming-soon {
       margin-top: 18px;
       padding: 22px;
@@ -162,7 +161,7 @@
       border-radius: 6px;
     }
 
-    /* ══════════ ДЕКОРАЦИИ: БЛОКИ ══════════ */
+    /* ══════════ БЛОКИ ══════════ */
     .mc {
       position: fixed;
       z-index: 0;
@@ -212,7 +211,6 @@
       50%     { transform: translateY(-10px) rotate(3deg); }
     }
 
-    /* ══════════ ЭМОДЗИ ══════════ */
     .emo {
       position: fixed;
       z-index: 0;
@@ -227,7 +225,6 @@
     .emo.e5 { top: 14%;   left: 42%;  animation: float 4.2s ease-in-out infinite 1.8s; font-size: 14px; }
     .emo.e6 { bottom: 4%; right: 20%; animation: float 3.6s ease-in-out infinite 1s; }
 
-    /* ══════════ ЛЕПЕСТКИ ══════════ */
     .petal {
       position: fixed;
       width: 8px; height: 8px;
@@ -236,13 +233,13 @@
       opacity: .55;
       animation: petals linear infinite;
     }
-    .petal:nth-child(1)  { left: 8%;  animation-duration: 9s;   animation-delay: 0s;   width: 6px; height: 6px; }
-    .petal:nth-child(2)  { left: 22%; animation-duration: 11s;  animation-delay: 2s;   width: 10px; height: 10px; opacity: .35; }
+    .petal:nth-child(1)  { left: 8%;  animation-duration: 9s;   animation-delay: 0s; width: 6px; height: 6px; }
+    .petal:nth-child(2)  { left: 22%; animation-duration: 11s;  animation-delay: 2s; width: 10px; height: 10px; opacity: .35; }
     .petal:nth-child(3)  { left: 38%; animation-duration: 8s;   animation-delay: 4s; }
-    .petal:nth-child(4)  { left: 52%; animation-duration: 10s;  animation-delay: 1s;   width: 6px; height: 6px; }
-    .petal:nth-child(5)  { left: 68%; animation-duration: 12s;  animation-delay: 3s;   opacity: .4; }
-    .petal:nth-child(6)  { left: 82%; animation-duration: 9s;   animation-delay: 5s;   width: 10px; height: 10px; }
-    .petal:nth-child(7)  { left: 14%; animation-duration: 13s;  animation-delay: 6s;   opacity: .3; }
+    .petal:nth-child(4)  { left: 52%; animation-duration: 10s;  animation-delay: 1s; width: 6px; height: 6px; }
+    .petal:nth-child(5)  { left: 68%; animation-duration: 12s;  animation-delay: 3s; opacity: .4; }
+    .petal:nth-child(6)  { left: 82%; animation-duration: 9s;   animation-delay: 5s; width: 10px; height: 10px; }
+    .petal:nth-child(7)  { left: 14%; animation-duration: 13s;  animation-delay: 6s; opacity: .3; }
     .petal:nth-child(8)  { left: 58%; animation-duration: 10s;  animation-delay: 2.5s; width: 7px; height: 7px; }
     .petal:nth-child(9)  { left: 92%; animation-duration: 11s;  animation-delay: 4.5s; opacity: .4; }
     .petal:nth-child(10) { left: 45%; animation-duration: 9.5s; animation-delay: 1.5s; }
@@ -250,14 +247,13 @@
     .petal:nth-child(12) { left: 30%; animation-duration: 12s;  animation-delay: 0.5s; opacity: .3; width: 9px; height: 9px; }
 
     @keyframes petals {
-      0%   { top: -12px; transform: rotate(0)    translateX(0); }
-      25%  { transform: rotate(90deg)  translateX(22px); }
+      0%   { top: -12px; transform: rotate(0) translateX(0); }
+      25%  { transform: rotate(90deg) translateX(22px); }
       50%  { transform: rotate(180deg) translateX(-18px); }
       75%  { transform: rotate(270deg) translateX(12px); }
       100% { top: 105vh; transform: rotate(360deg) translateX(0); }
     }
 
-    /* ══════════ ИСКОРКИ ══════════ */
     .spark {
       position: fixed;
       width: 4px; height: 4px;
@@ -279,7 +275,6 @@
       50%     { opacity: .9; transform: scale(1.2); }
     }
 
-    /* ══════════ ПОЛОСА ТРАВЫ ══════════ */
     .ground {
       position: fixed;
       bottom: 0; left: 0;
@@ -303,7 +298,6 @@
       border: 2px solid #388E3C; border-bottom: none;
     }
 
-    /* ══════════ АНИМАЦИИ ПОЯВЛЕНИЯ ══════════ */
     .nav-btn { opacity: 0; transform: translateX(-30px); animation: slideIn .5s ease forwards; }
     .nav-btn:nth-child(1) { animation-delay: .1s; }
     .nav-btn:nth-child(2) { animation-delay: .2s; }
@@ -311,13 +305,12 @@
     .nav-btn:nth-child(4) { animation-delay: .4s; }
     .nav-btn:nth-child(5) { animation-delay: .5s; }
 
-    .character    { opacity: 0; animation: fadeIn .8s ease forwards .3s; }
-    .coming-soon  { opacity: 0; animation: fadeIn .6s ease forwards .7s; }
+    .character   { opacity: 0; animation: fadeIn .8s ease forwards .3s; }
+    .coming-soon { opacity: 0; animation: fadeIn .6s ease forwards .7s; }
 
     @keyframes slideIn { to { opacity: 1; transform: translateX(0); } }
     @keyframes fadeIn  { to { opacity: 1; } }
 
-    /* ══════════ ФУТЕР ══════════ */
     .footer {
       position: relative; z-index: 1;
       text-align: center;
@@ -327,7 +320,6 @@
       opacity: .7;
     }
 
-    /* ══════════ АДАПТИВ ══════════ */
     @media (max-width: 800px) {
       .container { flex-direction: column-reverse; gap: 24px; padding: 20px 14px 70px; }
       .left, .right { width: 100%; }
@@ -380,10 +372,8 @@
 
   <div class="ground" id="ground"></div>
 
-  <!-- ═══ КОНТЕНТ ═══ -->
   <div class="container">
 
-    <!-- ── Кнопки слева ── -->
     <div class="left">
 
       <a href="https://t.me/murxaibot" class="nav-btn" target="_blank">
@@ -438,10 +428,9 @@
       </div>
     </div>
 
-    <!-- ── Персонаж справа по центру ── -->
     <div class="right">
       <div class="character">
-        <img src="murx.png">
+        <img src="murx.png" alt="Murx">
       </div>
     </div>
 
