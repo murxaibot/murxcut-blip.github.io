@@ -20,7 +20,6 @@
     ::-webkit-scrollbar-track { background: #f5c6d0; }
     ::-webkit-scrollbar-thumb { background: #c48888; border: 2px solid #8b5e5e; }
 
-    /* ══════════ ФОН ══════════ */
     .bg {
       position: fixed;
       inset: 0;
@@ -41,18 +40,16 @@
       pointer-events: none;
     }
 
-    /* ══════════ НАВИГАЦИЯ ══════════ */
     .top-nav {
       position: relative;
       z-index: 2;
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      padding: 16px 20px;
-      max-width: 900px;
+      padding: 8px 20px;
+      max-width: 1200px;
       margin: 0 auto;
     }
-
 
     .top-nav a {
       display: inline-flex;
@@ -88,7 +85,6 @@
       margin-right: auto;
     }
 
-    /* ══════════ КОНТЕНТ ══════════ */
     .container {
       position: relative;
       z-index: 1;
@@ -107,7 +103,6 @@
       animation: fadeIn .5s ease forwards .1s;
     }
 
-    /* ─── Заголовок секции ─── */
     .section-title {
       font-size: 13px;
       color: #4a1a1a;
@@ -128,7 +123,6 @@
       margin-top: 6px;
     }
 
-    /* ─── Сетка книжек ─── */
     .books-grid {
       display: flex;
       flex-wrap: wrap;
@@ -137,7 +131,6 @@
       margin-bottom: 12px;
     }
 
-    /* ─── Книжка ─── */
     .book {
       width: 320px;
       background: rgba(26,10,14,.88);
@@ -156,6 +149,9 @@
     .book:nth-child(3) { animation-delay: .3s; }
     .book:nth-child(4) { animation-delay: .4s; }
     .book:nth-child(5) { animation-delay: .5s; }
+    .book:nth-child(6) { animation-delay: .6s; }
+    .book:nth-child(7) { animation-delay: .7s; }
+    .book:nth-child(8) { animation-delay: .8s; }
 
     .book:hover {
       transform: translateY(-4px) scale(1.02);
@@ -163,7 +159,6 @@
       box-shadow: 0 8px 24px rgba(255,150,180,.3);
     }
 
-    /* Левая часть — картинка */
     .book-cover {
       width: 110px;
       min-height: 160px;
@@ -183,13 +178,11 @@
       display: block;
     }
 
-    /* Заглушка если нет картинки */
     .book-cover .placeholder {
       font-size: 36px;
       opacity: .5;
     }
 
-    /* Правая часть — теги + кнопка */
     .book-info {
       flex: 1;
       padding: 14px;
@@ -208,7 +201,6 @@
       margin-bottom: 4px;
     }
 
-    /* ─── Хештеги ─── */
     .tags {
       display: flex;
       flex-wrap: wrap;
@@ -231,7 +223,6 @@
       color: #fff;
     }
 
-    /* ─── Кнопка ─── */
     .book-btn {
       display: inline-flex;
       align-items: center;
@@ -257,7 +248,48 @@
       transform: scale(1.03);
     }
 
-    /* ══════════ MINECRAFT ДЕКОР ══════════ */
+    /* Coming soon книжка */
+    .book.coming-soon {
+      opacity: 0;
+      animation: cardIn .5s ease forwards .3s;
+    }
+
+    .coming-soon-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 20px;
+      gap: 10px;
+    }
+
+    .coming-soon-inner .cs-icon {
+      font-size: 32px;
+      animation: pigBob 2s ease-in-out infinite;
+    }
+
+    .coming-soon-inner .cs-text {
+      font-size: 9px;
+      color: #ffd700;
+      text-shadow: 2px 2px 0 rgba(0,0,0,.5);
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    .coming-soon-inner .cs-sub {
+      font-size: 6px;
+      color: #ddd0d0;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    @keyframes pigBob {
+      0%,100% { transform: translateY(0); }
+      50%     { transform: translateY(-8px); }
+    }
+
+    /* Minecraft декор */
     .mc {
       position: fixed;
       z-index: 0;
@@ -312,7 +344,6 @@
       background: #8B5E3C;
       border: 2px solid #6b4226;
       opacity: .3;
-      position: relative;
     }
     .mc.bookshelf::after {
       content: '';
@@ -377,7 +408,6 @@
       50%     { transform: translateY(-10px) rotate(3deg); }
     }
 
-    /* ══════════ ЭМОДЗИ ══════════ */
     .emo {
       position: fixed;
       z-index: 0;
@@ -394,7 +424,6 @@
     .emo.e7 { top: 55%;   right: 5%;  animation: float 3.3s ease-in-out infinite .5s; font-size: 12px; }
     .emo.e8 { top: 15%;   left: 12%;  animation: float 4.5s ease-in-out infinite 2s; }
 
-    /* ══════════ ЛЕПЕСТКИ ══════════ */
     .petal {
       position: fixed;
       width: 8px; height: 8px;
@@ -422,7 +451,6 @@
       100% { top: 105vh; transform: rotate(360deg) translateX(0); }
     }
 
-    /* ══════════ ИСКОРКИ ══════════ */
     .spark {
       position: fixed;
       width: 4px; height: 4px;
@@ -442,7 +470,6 @@
       50%     { opacity: .9; transform: scale(1.2); }
     }
 
-    /* ══════════ ПОЛОСА ТРАВЫ ══════════ */
     .ground {
       position: fixed;
       bottom: 0; left: 0;
@@ -473,7 +500,6 @@
       to { opacity: 1; }
     }
 
-    /* ══════════ ФУТЕР ══════════ */
     .footer {
       position: relative; z-index: 1;
       text-align: center;
@@ -483,9 +509,8 @@
       opacity: .7;
     }
 
-    /* ══════════ АДАПТИВ ══════════ */
     @media (max-width: 700px) {
-      .top-nav { gap: 6px; padding: 12px 14px; }
+      .top-nav { gap: 6px; padding: 6px 14px; }
       .top-nav a { font-size: 6px; padding: 8px 12px; }
       .page-title { font-size: 14px; }
       .section-title { font-size: 10px; }
@@ -501,34 +526,30 @@
 
   <div class="bg"></div>
 
-  <!-- Лепестки -->
   <div class="petal"></div><div class="petal"></div><div class="petal"></div>
   <div class="petal"></div><div class="petal"></div><div class="petal"></div>
   <div class="petal"></div><div class="petal"></div><div class="petal"></div>
   <div class="petal"></div>
 
-  <!-- Искорки -->
   <div class="spark s1"></div><div class="spark s2"></div>
   <div class="spark s3"></div><div class="spark s4"></div>
   <div class="spark s5"></div><div class="spark s6"></div>
 
-  <!-- Minecraft блоки -->
-  <div class="mc grass    d1"></div>
-  <div class="mc wool     d2"></div>
-  <div class="mc cherry   d3"></div>
+  <div class="mc grass     d1"></div>
+  <div class="mc wool      d2"></div>
+  <div class="mc cherry    d3"></div>
   <div class="mc bookshelf d4"></div>
-  <div class="mc diamond  d5"></div>
-  <div class="mc log      d6"></div>
-  <div class="mc grass    d7"></div>
-  <div class="mc cake     d8"></div>
-  <div class="mc wool     d9"></div>
-  <div class="mc pumpkin  d10"></div>
-  <div class="mc cherry   d11"></div>
+  <div class="mc diamond   d5"></div>
+  <div class="mc log       d6"></div>
+  <div class="mc grass     d7"></div>
+  <div class="mc cake      d8"></div>
+  <div class="mc wool      d9"></div>
+  <div class="mc pumpkin   d10"></div>
+  <div class="mc cherry    d11"></div>
   <div class="mc bookshelf d12"></div>
-  <div class="mc diamond  d13"></div>
-  <div class="mc grass    d14"></div>
+  <div class="mc diamond   d13"></div>
+  <div class="mc grass     d14"></div>
 
-  <!-- Эмодзи -->
   <div class="emo e1">💗</div>
   <div class="emo e2">🎀</div>
   <div class="emo e3">📚</div>
@@ -538,7 +559,6 @@
   <div class="emo e7">💮</div>
   <div class="emo e8">🌷</div>
 
-  <!-- Полоса травы -->
   <div class="ground" id="ground"></div>
 
   <!-- ══════════ НАВИГАЦИЯ ══════════ -->
@@ -554,216 +574,273 @@
   <!-- ══════════ КОНТЕНТ ══════════ -->
   <div class="container">
 
-    <h1 class="page-title">💗 Мои Боты</h1>
+    <h1 class="page-title">🎀 Мои Боты</h1>
 
-    <!-- ═══════════════════════════════════ -->
-    <!-- СЕКЦИЯ: ХОККЕИСТЫ                  -->
-    <!-- ═══════════════════════════════════ -->
+    <!-- ═══ ХОККЕИСТЫ ═══ -->
     <div class="section-title">🏒 Хоккеисты</div>
 
     <div class="books-grid">
 
-      <!-- Книжка 1 -->
       <div class="book">
         <div class="book-cover">
-          <!-- Замени на: <img src="bot1.png" alt="Бот"> -->
-          <span class="placeholder">🏒</span>
+          <img src="Lucas.png" alt="Лукас Вентура">
         </div>
         <div class="book-info">
           <div>
-            <div class="book-name">Имя бота 1</div>
+            <div class="book-name">Лукас Вентура</div>
             <div class="tags">
-              <span class="tag">#хоккей</span>
-              <span class="tag">#спорт</span>
-              <span class="tag">#романтика</span>
-              <span class="tag">#парень</span>
+              <span class="tag">#male</span>
+              <span class="tag">#fempov</span>
+              <span class="tag">#redflag</span>
+              <span class="tag">#hockey</span>
+              <span class="tag">#deaddove</span>
+              <span class="tag">#OC</span>
             </div>
           </div>
-          <a href="#" class="book-btn" target="_blank">⭐ Перейти к боту</a>
+          <a href="https://t.me/murxaibot/221" class="book-btn" target="_blank">⭐ Перейти к боту</a>
         </div>
       </div>
 
-      <!-- Книжка 2 -->
       <div class="book">
         <div class="book-cover">
-          <span class="placeholder">🏒</span>
+          <img src="Mattias.png" alt="Мэттиас Бьорк">
         </div>
         <div class="book-info">
           <div>
-            <div class="book-name">Имя бота 2</div>
+            <div class="book-name">Мэттиас Бьорк</div>
             <div class="tags">
-              <span class="tag">#хоккей</span>
-              <span class="tag">#спорт</span>
-              <span class="tag">#драма</span>
-              <span class="tag">#парень</span>
+              <span class="tag">#male</span>
+              <span class="tag">#fempov</span>
+              <span class="tag">#greenflag</span>
+              <span class="tag">#hockey</span>
+              <span class="tag">#deaddove</span>
+              <span class="tag">#OC</span>
             </div>
           </div>
-          <a href="#" class="book-btn" target="_blank">⭐ Перейти к боту</a>
+          <a href="https://t.me/murxaibot/226" class="book-btn" target="_blank">⭐ Перейти к боту</a>
         </div>
       </div>
 
     </div>
 
-    <!-- ═══════════════════════════════════ -->
-    <!-- СЕКЦИЯ: LUNGUO                     -->
-    <!-- ═══════════════════════════════════ -->
+    <!-- ═══ LUNGUO ═══ -->
     <div class="section-title">🐉 LUNGUO <span>вселенная древнего китая фентези</span></div>
 
     <div class="books-grid">
 
-      <!-- Книжка 1 -->
       <div class="book">
         <div class="book-cover">
-          <span class="placeholder">🐉</span>
+          <img src="Lan Yue.png" alt="Луна (Лань Юэ)">
         </div>
         <div class="book-info">
           <div>
-            <div class="book-name">Имя бота 1</div>
+            <div class="book-name">Луна (Лань Юэ)</div>
             <div class="tags">
-              <span class="tag">#китай</span>
-              <span class="tag">#фентези</span>
-              <span class="tag">#древний мир</span>
-              <span class="tag">#магия</span>
+              <span class="tag">#female</span>
+              <span class="tag">#anypov</span>
+              <span class="tag">#greenflag</span>
+              <span class="tag">#magic</span>
+              <span class="tag">#catfolk</span>
+              <span class="tag">#OC</span>
             </div>
           </div>
-          <a href="#" class="book-btn" target="_blank">⭐ Перейти к боту</a>
+          <a href="https://t.me/murxaibot/280" class="book-btn" target="_blank">⭐ Перейти к боту</a>
         </div>
       </div>
 
-      <!-- Книжка 2 -->
       <div class="book">
         <div class="book-cover">
-          <span class="placeholder">🐉</span>
+          <img src="Shenghu.png" alt="Шэньху">
         </div>
         <div class="book-info">
           <div>
-            <div class="book-name">Имя бота 2</div>
+            <div class="book-name">Шэньху</div>
             <div class="tags">
-              <span class="tag">#китай</span>
-              <span class="tag">#фентези</span>
-              <span class="tag">#романтика</span>
-              <span class="tag">#император</span>
+              <span class="tag">#male</span>
+              <span class="tag">#anypov</span>
+              <span class="tag">#greenflag</span>
+              <span class="tag">#magic</span>
+              <span class="tag">#fox</span>
+              <span class="tag">#OC</span>
             </div>
           </div>
-          <a href="#" class="book-btn" target="_blank">⭐ Перейти к боту</a>
+          <a href="https://t.me/murxaibot/280" class="book-btn" target="_blank">⭐ Перейти к боту</a>
         </div>
       </div>
 
-      <!-- Книжка 3 -->
-      <div class="book">
-        <div class="book-cover">
-          <span class="placeholder">🐉</span>
-        </div>
-        <div class="book-info">
-          <div>
-            <div class="book-name">Имя бота 3</div>
-            <div class="tags">
-              <span class="tag">#китай</span>
-              <span class="tag">#фентези</span>
-              <span class="tag">#война</span>
-              <span class="tag">#дракон</span>
-            </div>
-          </div>
-          <a href="#" class="book-btn" target="_blank">⭐ Перейти к боту</a>
+      <!-- COMING SOON -->
+      <div class="book coming-soon">
+        <div class="coming-soon-inner">
+          <span class="cs-icon">🐉</span>
+          <span class="cs-text">Coming soon</span>
+          <span class="cs-sub">скоро новый бот</span>
         </div>
       </div>
 
     </div>
 
-    <!-- ═══════════════════════════════════ -->
-    <!-- СЕКЦИЯ: ДРУГИЕ                     -->
-    <!-- ═══════════════════════════════════ -->
+    <!-- ═══ ДРУГИЕ ═══ -->
     <div class="section-title">🌸 Другие</div>
 
     <div class="books-grid">
 
-      <!-- Книжка 1 -->
       <div class="book">
         <div class="book-cover">
-          <span class="placeholder">💜</span>
+          <img src="Vittorio.png" alt="Витторио Гримальди">
         </div>
         <div class="book-info">
           <div>
-            <div class="book-name">Имя бота 1</div>
+            <div class="book-name">Витторио Гримальди</div>
             <div class="tags">
-              <span class="tag">#романтика</span>
-              <span class="tag">#повседневность</span>
-              <span class="tag">#парень</span>
+              <span class="tag">#male</span>
+              <span class="tag">#fempov</span>
+              <span class="tag">#greenflag</span>
+              <span class="tag">#magic</span>
+              <span class="tag">#harrypotter</span>
+              <span class="tag">#OC</span>
             </div>
           </div>
-          <a href="#" class="book-btn" target="_blank">⭐ Перейти к боту</a>
+          <a href="https://t.me/murxaibot/67" class="book-btn" target="_blank">⭐ Перейти к боту</a>
         </div>
       </div>
 
-      <!-- Книжка 2 -->
       <div class="book">
         <div class="book-cover">
-          <span class="placeholder">🖤</span>
+          <img src="Samuel.png" alt="Сэмюэль Хартман">
         </div>
         <div class="book-info">
           <div>
-            <div class="book-name">Имя бота 2</div>
+            <div class="book-name">Сэмюэль Хартман</div>
             <div class="tags">
-              <span class="tag">#драма</span>
-              <span class="tag">#ангст</span>
-              <span class="tag">#парень</span>
+              <span class="tag">#male</span>
+              <span class="tag">#fempov</span>
+              <span class="tag">#greenflag</span>
+              <span class="tag">#psycologist</span>
+              <span class="tag">#DILF</span>
+              <span class="tag">#OC</span>
             </div>
           </div>
-          <a href="#" class="book-btn" target="_blank">⭐ Перейти к боту</a>
+          <a href="https://t.me/murxaibot/73" class="book-btn" target="_blank">⭐ Перейти к боту</a>
         </div>
       </div>
 
-      <!-- Книжка 3 -->
       <div class="book">
         <div class="book-cover">
-          <span class="placeholder">💙</span>
+          <img src="Isaiah.png" alt="Исайя">
         </div>
         <div class="book-info">
           <div>
-            <div class="book-name">Имя бота 3</div>
+            <div class="book-name">Исайя</div>
             <div class="tags">
-              <span class="tag">#фентези</span>
-              <span class="tag">#магия</span>
-              <span class="tag">#приключения</span>
+              <span class="tag">#male</span>
+              <span class="tag">#fempov</span>
+              <span class="tag">#blackflag</span>
+              <span class="tag">#cannibal</span>
+              <span class="tag">#violence</span>
+              <span class="tag">#Angst</span>
             </div>
           </div>
-          <a href="#" class="book-btn" target="_blank">⭐ Перейти к боту</a>
+          <a href="https://t.me/murxaibot/79" class="book-btn" target="_blank">⭐ Перейти к боту</a>
         </div>
       </div>
 
-      <!-- Книжка 4 -->
       <div class="book">
         <div class="book-cover">
-          <span class="placeholder">💚</span>
+          <img src="Viktor.png" alt="Виктор Емельянов">
         </div>
         <div class="book-info">
           <div>
-            <div class="book-name">Имя бота 4</div>
+            <div class="book-name">Виктор Емельянов</div>
             <div class="tags">
-              <span class="tag">#школа</span>
-              <span class="tag">#комедия</span>
-              <span class="tag">#романтика</span>
+              <span class="tag">#male</span>
+              <span class="tag">#anypov</span>
+              <span class="tag">#greenflag</span>
+              <span class="tag">#rusreal</span>
+              <span class="tag">#DILF</span>
+              <span class="tag">#OC</span>
             </div>
           </div>
-          <a href="#" class="book-btn" target="_blank">⭐ Перейти к боту</a>
+          <a href="https://t.me/murxaibot/106" class="book-btn" target="_blank">⭐ Перейти к боту</a>
         </div>
       </div>
 
-      <!-- Книжка 5 -->
       <div class="book">
         <div class="book-cover">
-          <span class="placeholder">🧡</span>
+          <img src="Alister.png" alt="Алистер Нурани">
         </div>
         <div class="book-info">
           <div>
-            <div class="book-name">Имя бота 5</div>
+            <div class="book-name">Алистер Нурани</div>
             <div class="tags">
-              <span class="tag">#мафия</span>
-              <span class="tag">#триллер</span>
-              <span class="tag">#парень</span>
+              <span class="tag">#male</span>
+              <span class="tag">#fempov</span>
+              <span class="tag">#greenflag</span>
+              <span class="tag">#harem</span>
+              <span class="tag">#concubine</span>
+              <span class="tag">#OC</span>
             </div>
           </div>
-          <a href="#" class="book-btn" target="_blank">⭐ Перейти к боту</a>
+          <a href="https://t.me/murxaibot/134" class="book-btn" target="_blank">⭐ Перейти к боту</a>
+        </div>
+      </div>
+
+      <div class="book">
+        <div class="book-cover">
+          <img src="Seojun.png" alt="Ким Соджун">
+        </div>
+        <div class="book-info">
+          <div>
+            <div class="book-name">Ким Соджун</div>
+            <div class="tags">
+              <span class="tag">#male</span>
+              <span class="tag">#fempov</span>
+              <span class="tag">#greenflag</span>
+              <span class="tag">#fluff</span>
+              <span class="tag">#korea</span>
+              <span class="tag">#OC</span>
+            </div>
+          </div>
+          <a href="https://t.me/murxaibot/153" class="book-btn" target="_blank">⭐ Перейти к боту</a>
+        </div>
+      </div>
+
+      <div class="book">
+        <div class="book-cover">
+          <img src="Blade.png" alt="Блэйд Уэзерби">
+        </div>
+        <div class="book-info">
+          <div>
+            <div class="book-name">Блэйд Уэзерби</div>
+            <div class="tags">
+              <span class="tag">#male</span>
+              <span class="tag">#fempov</span>
+              <span class="tag">#blackflag</span>
+              <span class="tag">#deaddove</span>
+              <span class="tag">#manipulator</span>
+              <span class="tag">#OC</span>
+            </div>
+          </div>
+          <a href="https://t.me/murxaibot/216" class="book-btn" target="_blank">⭐ Перейти к боту</a>
+        </div>
+      </div>
+
+      <div class="book">
+        <div class="book-cover">
+          <img src="Kai.png" alt="Кай">
+        </div>
+        <div class="book-info">
+          <div>
+            <div class="book-name">Кай</div>
+            <div class="tags">
+              <span class="tag">#male</span>
+              <span class="tag">#anypov</span>
+              <span class="tag">#greenflag</span>
+              <span class="tag">#magic</span>
+              <span class="tag">#cerberus</span>
+              <span class="tag">#OC</span>
+            </div>
+          </div>
+          <a href="https://t.me/murxaibot/288" class="book-btn" target="_blank">⭐ Перейти к боту</a>
         </div>
       </div>
 
